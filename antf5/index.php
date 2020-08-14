@@ -8,6 +8,8 @@
 
 		header("Location: index.php"); //não envia o formulairo caso eu aprte F5
 	}
+
+	phpinfo();
 ?>
 
 	<form method="POST">
