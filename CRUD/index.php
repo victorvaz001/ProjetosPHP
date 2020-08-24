@@ -51,11 +51,18 @@ $sql = $pdo->query($sql);
   </div>
   <div class="card-body">
     <h5 class="card-title">Tecnologias</h5>
-    <p class="card-text">PHP 7- MySQL - PDO - </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text">PHP 7.4.8 - PDO - MySQL - Bootstrap </p>
+     <h5 class="card-title">Programador</h5>
+     <p class="card-text">Victor Gonçalves Vaz<br>
+     	 victorvaz001@gmail.com</p>
+    <a href="index.php" class="btn btn-primary">Home</a>
   </div>
   <div class="card-footer text-muted">
-    2 days ago
+   	<?php
+   	date_default_timezone_set('America/Sao_Paulo');
+	$dataAtual = date("d/m/yy \-\ H:i:s");
+	echo "Todos os direitos reservados &copy; - ".$dataAtual;
+   	?>
   </div>
 </div>
 </div>
