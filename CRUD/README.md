@@ -14,7 +14,7 @@
 
 ## Testes<br>
 
-* Para executar o projeto, será necessario criar um banco de dados(blog) e uma tabele e uma tabela usuarios, backup do banco se encontra em anexo.
+* Para executar o projeto, será necessario criar um banco de dados(blog) e uma tabela (usuarios), backup do banco se encontra em anexo.
 
 ## Tela - Lista de Usuários
 
