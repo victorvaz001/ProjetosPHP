@@ -14,6 +14,7 @@ $sql = $pdo->query($sql);
 </head>
 <body>
 <div class="container">
+	<br/>
 	<h3 style="text-align: center;">List of Users</h3>
 	<br/>
 	<a class="btn btn-primary" href="adicionar.php" role="button">New User</a>
