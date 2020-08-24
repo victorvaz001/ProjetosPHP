@@ -15,3 +15,7 @@
 ## Testes<br>
 
 * Para executar o projeto, será necessario criar um banco de dados(blog) e uma tabele e uma tabela usuarios, backup do banco se encontra em anexo.
+
+## Tela - Lista de Usuários
+
+![Tabela de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/CRUD/index.jpg)
