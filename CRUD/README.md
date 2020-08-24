@@ -19,3 +19,7 @@
 ## Tela - Lista de Usuários
 
 ![Tabela de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/CRUD/index.jpg)
+
+## Tela - Cadastro de Usuários
+
+![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/CRUD/registration.jpg)
