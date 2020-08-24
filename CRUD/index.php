@@ -4,6 +4,7 @@ require 'config.php';
 $sql = "SELECT * FROM usuarios";
 $sql = $pdo->query($sql);
 
+	
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +45,19 @@ $sql = $pdo->query($sql);
   	?>
   </tbody>
 </table>
+<div class="card text-center">
+  <div class="card-header">
+    Sistema de Controle de Usuários
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Tecnologias</h5>
+    <p class="card-text">PHP 7- MySQL - PDO - </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
 </div>
 </body>
 </html>
