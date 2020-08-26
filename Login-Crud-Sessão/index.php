@@ -7,6 +7,8 @@ require 'config.php';
 <head>
   <title>Sistema de Usuários</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <script src="https://use.fontawesome.com/99dac69e8e.js"></script>
 </head>
 <body>
   <div class="container">
@@ -19,12 +21,12 @@ require 'config.php';
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link enable btn-outline-success" href="index.php">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="adduser.php">Registration</a>
+          <li class="nav-item active">
+            <a class="nav-link enable btn-outline-success" href="adduser.php">Registration </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link enable" href="index.php" tabindex="-1" aria-disabled="true">
               <?php
               if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
@@ -78,7 +80,7 @@ require 'config.php';
 </table>
 <div class="card w-100" style="text-align: center;">
   <div class="card-body">
-    <h5 class="card-title">Sistema web com PHP</h5>
+    <h5 class="card-title">Sistema Web com PHP 7 - MySQL - Bootstrap</h5>
     <p class="card-text">Sistema de Controle de usuários, Login com sessão, Insert, Delete, Update e Select<br> <h5 class="card-title">Programador<br></h5>
     Victor Gonçalves Vaz<br>victorvaz001@gmail.com </p>
     <a href="index.php" class="btn btn-primary">Home</a>
