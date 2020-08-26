@@ -14,6 +14,7 @@ require 'config.php';
 
 </head>
 <body class="text-center">
+
   <form class="form-signin" method="POST">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail" class="sr-only">Email address</label>

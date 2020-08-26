@@ -26,7 +26,7 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="adduser.php">Registration</a>
@@ -35,7 +35,7 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
             <a class="nav-link enable" href="index.php" tabindex="-1" aria-disabled="true">
               <?php
               $nome = $_SESSION['nome'];
-              echo "Olá ".$nome;
+              echo "Hello ".$nome;
               ?>
             </a>
           </li>

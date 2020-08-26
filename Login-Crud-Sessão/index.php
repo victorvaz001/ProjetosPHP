@@ -1,12 +1,6 @@
 <?php
 session_start();
 require 'config.php';
-if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
-	
-} else {
-	header("Location: login.php");
-}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +19,7 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="adduser.php">Registration</a>
@@ -33,8 +27,13 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
           <li class="nav-item">
             <a class="nav-link enable" href="index.php" tabindex="-1" aria-disabled="true">
               <?php
-              $nome = $_SESSION['nome'];
-              echo "Hello ".$nome;
+              if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
+                $nome = $_SESSION['nome'];
+                echo "Hello ".$nome;
+              } else {
+                header("Location: login.php");
+              }
+    
               ?>
             </a>
           </li>
@@ -67,8 +66,10 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
               echo '<td>'.$usuario["id"].'</td>';
               echo '<td>'.$usuario["nome"].'</td>';
               echo '<td>'.$usuario["email"].'</td>';
-              echo '<td><a href="updateUser.php?id='.$usuario["id"].'">Update</a></td>';
-              echo '<td><a href="deleteUser.php?id='.$usuario["id"].'">Delete</a></td>';
+              echo '<td><a href="updateUser.php?id='.$usuario["id"].'"
+              class="btn btn-outline-info">Update</a></td>';
+              echo '<td><a href="deleteUser.php?id='.$usuario["id"].'"
+              class="btn btn-outline-danger">Delete</a></td>';
               echo '</tr>';
           }
       }
