@@ -6,6 +6,7 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
 } else {
 	header("Location: login.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,7 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="adduser.php">Registration</a>
           </li>
           <li class="nav-item">
             <a class="nav-link enable" href="index.php" tabindex="-1" aria-disabled="true">
@@ -43,6 +44,37 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
         </form>
       </div>
     </nav>
+    <br/>
+    <table class="table table-hover" style="text-align: center;">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">E-mail</th>
+      <th scope="col" colspan="2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+      $sql = "SELECT * FROM usuarios";
+      $sql = $pdo->query($sql);
+
+      if($sql->rowCount() > 0){
+
+          foreach($sql->fetchAll() as $usuario){
+
+              echo '<tr>';
+              echo '<td>'.$usuario["id"].'</td>';
+              echo '<td>'.$usuario["nome"].'</td>';
+              echo '<td>'.$usuario["email"].'</td>';
+              echo '<td><a href="updateUser.php?id='.$usuario["id"].'">Update</a></td>';
+              echo '<td><a href="deleteUser.php?id='.$usuario["id"].'">Delete</a></td>';
+              echo '</tr>';
+          }
+      }
+    ?>
+  </tbody>
+</table>
   </div>
 </body>
 </html>
