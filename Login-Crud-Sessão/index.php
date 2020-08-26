@@ -76,6 +76,22 @@ require 'config.php';
     ?>
   </tbody>
 </table>
+<div class="card w-100" style="text-align: center;">
+  <div class="card-body">
+    <h5 class="card-title">Sistema web com PHP</h5>
+    <p class="card-text">Sistema de Controle de usuários, Login com sessão, Insert, Delete, Update e Select<br> <h5 class="card-title">Programador<br></h5>
+    Victor Gonçalves Vaz<br>victorvaz001@gmail.com </p>
+    <a href="index.php" class="btn btn-primary">Home</a>
+    <p>Todos os direitos reservados &copy; - <?php
+
+    date_default_timezone_set('America/Sao_Paulo');
+
+    $dataAtual = date("d/m/y \á\s H:i:s");
+
+    echo $dataAtual;
+    ?></p>
+  </div>
+</div>
   </div>
 </body>
 </html>
