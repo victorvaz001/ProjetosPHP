@@ -2,17 +2,48 @@
 session_start();
 require 'config.php';
 
+$id = 0;
+if(isset($_GET["id"]) && !empty($_GET["id"])){
+
+		$id = addslashes($_GET["id"]);
+
+		$sql = "SELECT * FROM usuarios WHERE  id = '$id'";
+		$sql = $pdo->query($sql);
+
+		if($sql->rowCount() > 0){
+			$dado = $sql->fetch();
+
+		} else {
+			header("Location: index.php");
+		}
+}
+
+if(isset($_POST["nome"]) && !empty($_POST["nome"])){
+
+		$nome = addslashes($_POST["nome"]);
+		$email = addslashes($_POST["email"]);
+		$senha = md5(addslashes($_POST["senha"]));
+
+		$sql = "UPDATE usuarios SET 
+				nome = '$nome', email = '$email', senha = '$senha'
+				WHERE id = '$id'";
+		$pdo->query($sql);
+
+		header("Location: index.php");
+}
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>User Registration</title>
+	<title>Update Users</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+
 	<div class="container">
+
 		 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="index.php">Sistema Of Users</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,22 +77,24 @@ require 'config.php';
       </div>
     </nav>
     <br/>
-    <h2 style="text-align: center;">Registration Users</h2>
+    <h2 style="text-align: center;">Update Users</h2>
 	<form method="POST">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="nome">Name</label>
-      <input type="text" class="form-control" name="nome">
+      <input type="text" class="form-control" name="nome"
+      value="<?php echo $dado["nome"]; ?>">
     </div>
     <div class="form-group col-md-6">
       <label for="senha">E-mail</label>
-      <input type="email" class="form-control" name="email">
+      <input type="email" class="form-control" name="email"
+      value="<?php echo $dado["email"]; ?>">
     </div>
   </div>
   <div class="form-group">
     <label for="senha">Senha</label>
     <input type="password" class="form-control" name="senha" maxlength="10"
-    placeholder="Max 10 characters">
+    placeholder="Max 10 characters" value="<?php echo $dado["senha"]; ?>">
   </div>
   
   <button type="submit" class="btn btn-primary">Save</button>
