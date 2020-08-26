@@ -3,7 +3,7 @@ require 'config.php';
 
 if(isset($_POST["nome"]) && !empty($_POST["nome"])){
 
-    $nome = addslashes($_POST["nome"]);
+    $nome  = addslashes($_POST["nome"]);
     $email = addslashes($_POST["email"]);
     $senha = md5(addslashes($_POST["senha"]));
 

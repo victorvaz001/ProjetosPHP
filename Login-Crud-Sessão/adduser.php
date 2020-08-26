@@ -2,6 +2,18 @@
 session_start();
 require 'config.php';
 
+if(isset($_POST["nome"]) && !empty($_POST["nome"])){
+  
+    $nome  = addslashes($_POST["nome"]);
+    $email = addslashes($_POST["email"]);
+    $senha = md5(addslashes($_POST["senha"]));
+
+    $sql = "INSERT INTO usuarios SET
+            nome = '$nome', email = '$email', senha = '$senha'";
+    $pdo->query($sql);
+
+    header("Location: index.php");
+}
 
 ?>
 
@@ -54,7 +66,7 @@ require 'config.php';
       <input type="text" class="form-control" name="nome">
     </div>
     <div class="form-group col-md-6">
-      <label for="senha">E-mail</label>
+      <label for="email">E-mail</label>
       <input type="email" class="form-control" name="email">
     </div>
   </div>
