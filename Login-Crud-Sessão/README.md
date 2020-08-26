@@ -24,3 +24,17 @@
 
 * Para executar o projeto, será necessario criar um banco de dados(blog) e uma tabela (usuarios), backup do banco se encontra em anexo.
 
+## Tela - Tela de Login
+
+![Tabela de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Login-Crud-Sess%C3%A3o/login.jpg)
+
+## Tela - Lista de Usuários
+
+![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Login-Crud-Sess%C3%A3o/tabela.jpg)
+
+## Tela - Cadastro de Usuários
+
+![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Login-Crud-Sess%C3%A3o/registro.jpg)
+
+
+
