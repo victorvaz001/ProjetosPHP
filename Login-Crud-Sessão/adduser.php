@@ -1,22 +1,23 @@
 <?php
 session_start();
 require 'config.php';
+
 if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
-	
+
 } else {
 	header("Location: login.php");
 }
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sistema de Usuários</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<title>User Registration</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+	<div class="container">
+		 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="index.php">Sistema Of Users</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,7 +35,7 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
             <a class="nav-link enable" href="index.php" tabindex="-1" aria-disabled="true">
               <?php
               $nome = $_SESSION['nome'];
-              echo "Hello ".$nome;
+              echo "Olá ".$nome;
               ?>
             </a>
           </li>
@@ -45,36 +46,25 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
       </div>
     </nav>
     <br/>
-    <table class="table table-hover" style="text-align: center;">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">E-mail</th>
-      <th scope="col" colspan="2">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-      $sql = "SELECT * FROM usuarios";
-      $sql = $pdo->query($sql);
-
-      if($sql->rowCount() > 0){
-
-          foreach($sql->fetchAll() as $usuario){
-
-              echo '<tr>';
-              echo '<td>'.$usuario["id"].'</td>';
-              echo '<td>'.$usuario["nome"].'</td>';
-              echo '<td>'.$usuario["email"].'</td>';
-              echo '<td><a href="updateUser.php?id='.$usuario["id"].'">Update</a></td>';
-              echo '<td><a href="deleteUser.php?id='.$usuario["id"].'">Delete</a></td>';
-              echo '</tr>';
-          }
-      }
-    ?>
-  </tbody>
-</table>
+	<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="nome">Name</label>
+      <input type="text" class="form-control" name="nome">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="senha">E-mail</label>
+      <input type="email" class="form-control" name="email">
+    </div>
   </div>
+  <div class="form-group">
+    <label for="senha">Senha</label>
+    <input type="password" class="form-control" name="senha" maxlength="10"
+    placeholder="Max 10 characters">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
+	</div>
 </body>
 </html>
