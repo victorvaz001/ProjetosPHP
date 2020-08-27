@@ -1,7 +1,7 @@
 # Projeto - Ordenação de resultados<br>
 
 ## Objetivo
-* Projeto criado para ordernar resultados, por idade e nome<br>
+* Projeto criado para ordenar resultados, por idade e nome<br>
   
 ## Tecnologias
 
@@ -12,4 +12,4 @@
 
 ## Testes<br>
 
-* Selecionar um campo no select para ordenação
+* Selecionar um campo no select para ordenação.
