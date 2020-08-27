@@ -1,7 +1,7 @@
 # Projeto - Ordenação de resultados<br>
 
 ## Objetivo
-* Projeto criado para ordernar de resultados, por idade e nome<br>
+* Projeto criado para ordernar resultados, por idade e nome<br>
   
 ## Tecnologias
 
