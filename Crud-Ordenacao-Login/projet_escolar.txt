@@ -1,0 +1,9 @@
+
+
+1 - Criar Banco projeto_escolar
+2 - Criar Tabela aluno com os campos id, nome, email, idade, sexo, senha
+3 - Criar tela de login com sessão de usuários e logout
+4 - Criar Index com tabela deusuarios, ordenação por nome, idade e sexo, update, delete, new user
+
+
+
