@@ -60,7 +60,7 @@ if(isset($_POST["nome"]) && !empty($_POST["nome"])){
     ?>
 
   </nav>
- <a class="btn btn-outline-primary" href="logout.php">Logout</a>
+ <a class="btn btn-outline-primary" href="logout.php" onclick="return confirm('Finalizar sessão?');">Logout</a>
 
 
  

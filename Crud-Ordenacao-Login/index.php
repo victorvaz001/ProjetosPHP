@@ -31,9 +31,12 @@ require 'config.php'
      
 
   </nav>
- <a class="btn btn-outline-primary" href="logout.php">Logout</a>
+ <a class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop"href="logout.php" onclick="return confirm('Finalizar sessão?');">Logout</a>
+
+
 
 </div>
+
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h2 class="display-5">PHP - MySQL - Bootstrap</h2>
@@ -42,6 +45,8 @@ require 'config.php'
 </div>
  
 <div class="container">
+
+  
 
    <a href="adduser.php" class="btn btn-primary">New User</a><br/><br/>
 
@@ -118,8 +123,10 @@ require 'config.php'
     </div>
   </footer>
 </div>	
-
 </body>
 </html>
 </body>
+
+</script>
+
 </html>
