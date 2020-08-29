@@ -11,7 +11,7 @@ require 'config.php'
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body style="background-color: #f5f5f5;">
-	 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+	 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm sticky-top">
 	<h5 class="my-0 mr-md-auto font-weight-normal"><a href="index.php"
 		style="text-decoration: none;">CRUD</h5></a>
  
