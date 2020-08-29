@@ -95,7 +95,7 @@ if(isset($_POST["nome"]) && !empty($_POST["nome"])){
       <input type="password" class="form-control" name="senha" maxlength="10" required>
     </div>
   </div>
-  <button type="submit" class="btn btn-info">Update</button>
+  <button type="submit" class="btn btn-info" onclick="return confirm('Confirma Atualização?');">Update</button>
    <a type="submit" class="btn btn-danger" href="index.php">Cancel</a>
 </form>
 	<footer class="pt-4 my-md-5 pt-md-5 border-top">

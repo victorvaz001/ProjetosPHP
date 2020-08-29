@@ -46,7 +46,7 @@ require 'config.php'
  
 <div class="container">
 
-  
+
 
    <a href="adduser.php" class="btn btn-primary">New User</a><br/><br/>
 
@@ -90,7 +90,7 @@ require 'config.php'
       <td><?php echo $usuario["sexo"]; ?></td>
       <td><?php echo '<a href="updateuser.php?id='.$usuario["id"].'" class="btn btn-outline-info">Update</a>'?></td>
 
-      <td><?php echo '<a href="deleteuser.php?id='.$usuario["id"].'" class="btn btn-outline-danger">Delete</a>'?></td>
+      <td onclick="return confirm('Confirmar Exclusão?');"><?php echo '<a href="deleteuser.php?id='.$usuario["id"].'" class="btn btn-outline-danger">Delete</a>'?></td>
     </tr>
   </tbody>
   <?php

@@ -63,7 +63,7 @@ require 'config.php';
       <input type="password" class="form-control" name="senha" maxlength="10" placeholder="Max 10 characters" required>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Register</button>
+  <button type="submit" class="btn btn-primary" onclick="return confirm('Confirmar registro?');">Register</button>
   <a type="submit" class="btn btn-danger" href="index.php">Cancel</a>
 </form>
 	<footer class="pt-4 my-md-5 pt-md-5 border-top">
