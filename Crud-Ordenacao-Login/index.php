@@ -1,6 +1,8 @@
 <?php
 session_start();
 require 'config.php'
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,13 +18,21 @@ require 'config.php'
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" href="index.php">Home</a>
     <a class="p-2 text-dark" href="adduser.php">New User</a>
-      <a href="index.php">Olá fulano</a>
+    <?php
+      if(isset($_SESSION["id"]) && !empty($_SESSION["id"])){
+
+          $nome = $_SESSION["nome"];
+
+          echo '<a href="index.php"> Hello '.$nome.'</a>';
+      } else {
+        header("Location: login.php");
+      }
+    ?>
+     
 
   </nav>
  <a class="btn btn-outline-primary" href="logout.php">Logout</a>
 
-
- 
 </div>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -47,24 +57,41 @@ require 'config.php'
    </form>
 <br/><br/>
 
- <table class="table">
+ <table class="table" style="text-align: center;">
 
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Age</th>
+      <th scope="col">Sex</th>
+      <th scope="col" colspan="2">Actions</th>
     </tr>
   </thead>
+  <?php
+      $sql = "SELECT * FROM aluno";
+      $sql = $pdo->query($sql);
+
+    if($sql->rowCount()> 0){
+      foreach($sql->fetchAll() as $usuario):
+  ?>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row"><?php echo $usuario["id"]; ?></th>
+      <td><?php echo $usuario["nome"]; ?></td>
+      <td><?php echo $usuario["email"]; ?></td>
+      <td><?php echo $usuario["idade"]; ?></td>
+      <td><?php echo $usuario["sexo"]; ?></td>
+      <td><?php echo '<a href="updateuser.php?id='.$usuario["id"].'" class="btn btn-outline-info">Update</a>'?></td>
+
+      <td><?php echo '<a href="deleteuser.php?id='.$usuario["id"].'" class="btn btn-outline-danger">Delete</a>'?></td>
     </tr>
   </tbody>
+  <?php
+    endforeach;
+  }
+  ?>
 </table>
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">

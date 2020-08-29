@@ -1,6 +1,38 @@
 <?php
 session_start();
 require 'config.php';
+
+$id = 0;
+if(isset($_GET["id"]) && !empty($_GET["id"])){
+
+    $id = addslashes($_GET["id"]);
+
+    $sql = "SELECT * FROM aluno WHERE id = '$id'";
+    $sql = $pdo->query($sql);
+
+    if($sql->rowCount() > 0){
+      $dado = $sql->fetch();
+    } else {
+      header("Location: index.php");
+    }
+}
+
+if(isset($_POST["nome"]) && !empty($_POST["nome"])){
+
+    $nome = addslashes($_POST["nome"]);
+    $email = addslashes($_POST["email"]);
+    $idade = addslashes($_POST["idade"]);
+    $sexo = addslashes($_POST["sexo"]);
+    $senha = md5(addslashes($_POST["senha"]));
+
+    $sql = "UPDATE aluno SET
+          nome = '$nome', email = '$email', idade = '$idade', sexo = '$sexo', senha = '$senha'
+          WHERE id = '$id'";
+    $pdo->query($sql);
+
+    header("Location: index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +49,18 @@ require 'config.php';
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" href="index.php">Home</a>
     <a class="p-2 text-dark" href="adduser.php">New User</a>
-      <a href="index.php">Olá fulano</a>
+    <?php
+    if(isset($_SESSION["id"]) && !empty($_SESSION["id"])){
+
+      $nome = $_SESSION["nome"];
+      echo '<a href="index.php"> Hello '.$nome.'</a>';
+    } else {
+      header("Location: login.php");
+    }
+    ?>
 
   </nav>
- <a class="btn btn-outline-primary" href="#">Logout</a>
+ <a class="btn btn-outline-primary" href="logout.php">Logout</a>
 
 
  
@@ -30,29 +70,29 @@ require 'config.php';
   <h2 class="display-5">Update User</h2>
 
 </div>
-	<form>
+	<form method="POST">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="nome">Name</label>
-      <input type="text" class="form-control" name="nome">
+      <input type="text" class="form-control" name="nome" value="<?php echo $dado["nome"]; ?>">
     </div>
     <div class="form-group col-md-6">
       <label for="email">E-mail</label>
-      <input type="email" class="form-control" name="email">
+      <input type="email" class="form-control" name="email" value="<?php echo $dado["email"]; ?>">
     </div>
   </div>
   <div class="form-group">
     <label for="idade">Age</label>
-    <input type="number" class="form-control" name="idade">
+    <input type="number" class="form-control" name="idade" value="<?php echo $dado["idade"]; ?>">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="sexo">Sex</label>
-      <input type="sexo" class="form-control" name="sexo" >
+      <input type="sexo" class="form-control" name="sexo" value="<?php echo $dado["sexo"]; ?>">
     </div>
     <div class="form-group col-md-6">
       <label for="senha">Password</label>
-      <input type="password" class="form-control" name="senha" maxlength="10" 	required>
+      <input type="password" class="form-control" name="senha" maxlength="10" required>
     </div>
   </div>
   <button type="submit" class="btn btn-info">Update</button>

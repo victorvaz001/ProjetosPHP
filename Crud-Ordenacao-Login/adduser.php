@@ -17,10 +17,18 @@ require 'config.php';
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" href="index.php">Home</a>
     <a class="p-2 text-dark" href="adduser.php">New User</a>
-      <a href="index.php">Olá fulano</a>
+    <?php
+      if(isset($_SESSION["id"]) && !empty($_SESSION["id"])){
+
+          $nome = $_SESSION["nome"];
+          echo '<a href="index.php"> Hello '.$nome.'</a>';
+      } else {
+        header("Location: login.php");
+      }
+    ?>
 
   </nav>
- <a class="btn btn-outline-primary" href="#">Logout</a>
+ <a class="btn btn-outline-primary" href="logout.php">Logout</a>
 
 
  
