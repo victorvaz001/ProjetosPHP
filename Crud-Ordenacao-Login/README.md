@@ -29,11 +29,11 @@
 
 ![Tabela de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Crud-Ordenacao-Login/login.jpg)
 
-## List Users
+## Registration Users
 
 ![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Crud-Ordenacao-Login/registro.jpg)
 
-## Registration Users
+## List Users
 
 ![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Crud-Ordenacao-Login/tabela.jpg)
 
