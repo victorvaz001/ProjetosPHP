@@ -1,6 +1,15 @@
 <?php
 session_start();
-require 'config.php'
+require 'config.php';
+
+if(isset($_GET["ordem"]) && !empty($_GET["ordem"])){
+
+      $ordem = addslashes($_GET["ordem"]);
+      $sql = "SELECT * FROM aluno ORDER BY ".$ordem;
+} else {
+      $ordem = "";
+      $sql = "SELECT * FROM aluno";
+}
 
 
 ?>
@@ -51,14 +60,15 @@ require 'config.php'
    <a href="adduser.php" class="btn btn-primary">New User</a><br/><br/>
 
    <form method="GET">
-    
-    <label for="exampleFormControlSelect1">Filtrar</label>
-    <select class="form-control " id="exampleFormControlSelect1">
+
+    <label for="exampleFormControlSelect1">Filter</label>
+    <select class="form-control" name="ordem" onchange="this.form.submit()">
       <option></option>
-      <option>For name</option>
-      <option>For age</option>
-      <option>For Sex</option>
+      <option value="nome" <?php echo ($ordem=="nome")?'selected="selected"':''?>>For name</option>
+      <option value="idade" <?php echo ($ordem=="idade")?'selected="selected"':''?>>For age</option>
+      <option value="sexo" <?php echo ($ordem=="sexo")?'selected="selected"':''?>>For Sex</option>
     </select>
+
    </form>
 <br/><br/>
 
@@ -75,7 +85,7 @@ require 'config.php'
     </tr>
   </thead>
   <?php
-      $sql = "SELECT * FROM aluno";
+    
       $sql = $pdo->query($sql);
 
     if($sql->rowCount()> 0){

@@ -1,6 +1,22 @@
 <?php
 session_start();
 require 'config.php';
+
+if(isset($_POST["nome"]) && !empty($_POST["nome"])){
+
+        $nome = addslashes($_POST["nome"]);
+        $email = addslashes($_POST["email"]);
+        $idade = addslashes($_POST["idade"]);
+        $sexo = addslashes($_POST["sexo"]);
+        $senha = md5(addslashes($_POST["senha"]));
+
+        $sql = "INSERT INTO aluno SET 
+        nome = '$nome', email = '$email', idade = '$idade', sexo = '$sexo', senha = '$senha'";
+         $pdo->query($sql);
+
+        header("Location: index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +54,7 @@ require 'config.php';
   <h2 class="display-5">Add New User</h2>
 
 </div>
-	<form>
+	<form method="POST">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="nome">Name</label>
