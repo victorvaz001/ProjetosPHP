@@ -25,15 +25,15 @@
 
 ## Login
 
-![Tabela de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Crud-Ordenacao-Login/login.jpg)
+![Tabela de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Projeto-Blog-Noticias/login.jpg)
 
 ## Registration Notices
 
-![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Crud-Ordenacao-Login/registro.jpg)
+![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Projeto-Blog-Noticias/registro.jpg)
 
 ## List Notices
 
-![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Crud-Ordenacao-Login/tabela.jpg)
+![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Projeto-Blog-Noticias/tabela.jpg)
 
 
 
