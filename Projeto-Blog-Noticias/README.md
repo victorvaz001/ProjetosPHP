@@ -1,4 +1,4 @@
-# Sistema PHP - CRUD - MySQL - Ordenação - Login <br>
+# Sistema Blog de noticias - PHP - MySQL - Bootstrap <br>
 
 ## Objetivo
 * Projeto criado para gerenciar noticias de um blog<br>
