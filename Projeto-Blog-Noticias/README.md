@@ -21,7 +21,7 @@
 
 ## Testes<br>
 
-* Para executar o projeto, será necessario criar um banco de dados(blog_noticias) uma tabela (noticias e alunos), backup do banco se encontra em anexo.
+* Para executar o projeto, será necessario criar um banco de dados(blog_noticias) e as tabelas (noticias e alunos), backup do banco se encontra em anexo.
 
 ## Login
 
