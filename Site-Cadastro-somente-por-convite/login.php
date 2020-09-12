@@ -48,7 +48,7 @@ require 'config.php';
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.php"
-                    onclick="return alert('Está página é acessível somente com convite')">Registro</a>
+                    onclick="return alert('Está página é acessível somente com convite, por favor entre em contato com o administrador do sistema')">Registro</a>
                 </li>
             </ul>
 

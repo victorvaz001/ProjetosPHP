@@ -25,7 +25,7 @@
                     </div>
                     <div class="error-actions">
                         <a href="login.php" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                        Voltar para o login </a><a href="http://www.jquery2dotnet.com" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
+                        Voltar para o login </a><a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contactar o suport </a>
                     </div>
                 </div>
             </div>
