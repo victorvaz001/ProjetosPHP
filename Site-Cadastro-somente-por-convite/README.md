@@ -28,11 +28,11 @@
 
 ## Registration Notices
 
-![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Projeto-Blog-Noticias/registro.jpg)
+![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Site-Cadastro-somente-por-convite/index.jpg)
 
 ## List Notices
 
-![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Projeto-Blog-Noticias/tabela.jpg)
+![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Site-Cadastro-somente-por-convite/pagina-convidados.jpg)
 
 
 
