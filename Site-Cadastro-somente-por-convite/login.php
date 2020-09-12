@@ -107,16 +107,16 @@ require 'config.php';
                                           header("Location: index.php");
                                       } 
                                   } else {
-                                   
-                                   echo ' <br/>
-                                   <div class="alert alert-danger" role="alert">
-                                   Usuário ou senha invalidos!
-                                   </div>';
-                                   
-                               }
-                           }
-                           ?>
-                       </div>
+                                     
+                                     echo ' <br/>
+                                     <div class="alert alert-danger" role="alert">
+                                     Usuário ou senha invalidos!
+                                     </div>';
+                                     
+                                 }
+                             }
+                             ?>
+                         </div>
                     </div>
                     </form>
                 </div>
