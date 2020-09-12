@@ -26,13 +26,13 @@
 
 ![Tabela de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Site-Cadastro-somente-por-convite/login.jpg)
 
-## Registration Notices
+## Index
 
 ![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Site-Cadastro-somente-por-convite/index.jpg)
 
-## List Notices
+## Pagina não encontrada / Codigo esgotado
 
-![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Site-Cadastro-somente-por-convite/pagina-convidados.jpg)
+![Cadastro de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Site-Cadastro-somente-por-convite/pagina-convite-esgotado.jpg)
 
 
 
