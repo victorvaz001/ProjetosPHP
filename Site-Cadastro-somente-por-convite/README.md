@@ -24,7 +24,7 @@
 
 ## Login
 
-![Tabela de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Projeto-Blog-Noticias/login.jpg)
+![Tabela de Usuarios](https://github.com/victorvaz001/ProjetosPHP/blob/master/Site-Cadastro-somente-por-convite/login.jpg)
 
 ## Registration Notices
 
