@@ -1,3 +1,12 @@
+<?php
+session_start();
+require 'config.php';
+
+
+
+?>
+
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -54,18 +63,18 @@
                 <div class="card">
                     <div class="card-header">Registro</div>
                     <div class="card-body">
-                        <form action="" method="">
+                        <form method="POST">
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="email_address" class="form-control" name="email-address" required autofocus>
+                                    <input type="text" id="email_address" class="form-control" name="email" required autofocus>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Senha</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password" required>
+                                    <input type="password" id="password" class="form-control" name="senha" required>
                                 </div>
                             </div>
 
@@ -74,6 +83,40 @@
                                     Entrar
                                 </button>
                             </div>
+
+                            <div class="col-md-6 offset-md-4">
+                                <?php
+                                if(isset($_POST['email']) && !empty($_POST['email'])){
+
+                                    $email = addslashes($_POST['email']);
+                                    $senha = md5(addslashes($_POST['senha']));
+
+
+                                    $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+                                    $sql = $pdo->query($sql);
+
+                                    if($sql->rowCount() > 0){
+                                        foreach($sql->fetchAll() as $usuario){
+
+                                          $_SESSION['id'] = $usuario['id'];
+                                          $_SESSION['email'] = $usuario['email'];
+                                          $_SESSION['convite'] = $usuario['convites'];
+                                          $_SESSION['codigo_sessao'] = $usuario['codigo'];
+
+
+                                          header("Location: index.php");
+                                      } 
+                                  } else {
+                                   
+                                   echo ' <br/>
+                                   <div class="alert alert-danger" role="alert">
+                                   Usuário ou senha invalidos!
+                                   </div>';
+                                   
+                               }
+                           }
+                           ?>
+                       </div>
                     </div>
                     </form>
                 </div>
