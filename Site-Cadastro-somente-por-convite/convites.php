@@ -1,13 +1,6 @@
 <?php
 session_start();
 require 'config.php';
-
-if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
-
-} else {
-    header("Location: login.php");
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +45,41 @@ if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
       </div>
 
     </nav>
-      <h1>Bem vindo ao Sistema de convites</h1>
+    <br/>
+    <h2>Meus convites</h2>
+    <p class="alert alert-success">
+    Você tem 5 Convites para enviar para seus amigos</a>.
+  </p>
+  <table class="table table-striped" style="text-align: center;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">E-mail</th>
+      <th scope="col">Convites enviados</th>
+      <th scope="col" colspan="2">Link convite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><?php echo $_SESSION['email'];?></td>   
+      <td>
+      <?php
+          if($_SESSION['convite'] == 5)
+      {
+            echo 'Você já enviou todos os seus convites, procure o administrador para receber mais convites!';
+            
+      } else {
+            echo $_SESSION['convite'];
+      }
+      ?>
+      </td>
+      <td></td>
+      <td><?php echo 'http://localhost/projetox/Projetos-PHP/Site-Cadastro-somente-por-convite/register.php?codigo='.$_SESSION['codigo_sessao'];?></td>
+
+    </tr>
+    <tr>
+  </tbody>
+</table>
+      
   </div>
 </body>
 </html>
