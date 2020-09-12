@@ -1,6 +1,14 @@
 <?php
 session_start();
 require 'config.php';
+
+if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
+
+} else {
+    header("Location: login.php");
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +19,7 @@ require 'config.php';
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -41,16 +50,16 @@ require 'config.php';
             </div>
           </li>
         </ul>
-        </span>
-      </div>
+      </span>
+    </div>
 
-    </nav>
-    <br/>
-    <h2>Meus convites</h2>
-    <p class="alert alert-success">
-    Você tem 5 Convites para enviar para seus amigos</a>.
-  </p>
-  <table class="table table-striped" style="text-align: center;">
+  </nav>
+  <br/>
+  <h2>Meus convites</h2>
+  <p class="alert alert-success">
+  Você tem 5 Convites para enviar para seus amigos</a>.
+</p>
+<table class="table table-striped" style="text-align: center;">
   <thead class="thead-dark">
     <tr>
       <th scope="col">E-mail</th>
@@ -62,24 +71,24 @@ require 'config.php';
     <tr>
       <td><?php echo $_SESSION['email'];?></td>   
       <td>
-      <?php
-          if($_SESSION['convite'] == 5)
-      {
-            echo 'Você já enviou todos os seus convites, procure o administrador para receber mais convites!';
-            
-      } else {
-            echo $_SESSION['convite'];
+        <?php
+        if($_SESSION['convite'] == 5)
+        {
+          echo 'Você já enviou todos os seus convites, procure o administrador para receber mais convites!';
+          
+        } else {
+        echo $_SESSION['convite'];
       }
       ?>
-      </td>
-      <td></td>
-      <td><?php echo 'http://localhost/projetox/Projetos-PHP/Site-Cadastro-somente-por-convite/register.php?codigo='.$_SESSION['codigo_sessao'];?></td>
+    </td>
+    <td></td>
+    <td><?php echo 'http://localhost/projetox/Projetos-PHP/Site-Cadastro-somente-por-convite/register.php?codigo='.$_SESSION['codigo_sessao'];?></td>
 
-    </tr>
-    <tr>
+  </tr>
+  <tr>
   </tbody>
 </table>
-      
-  </div>
+
+</div>
 </body>
 </html>

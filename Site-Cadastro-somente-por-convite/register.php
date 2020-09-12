@@ -1,6 +1,23 @@
 <?php
 session_start();
 require 'config.php';
+
+if(isset($_GET['codigo']) && !empty($_GET['codigo'])){
+
+        $codigo = addslashes($_GET['codigo']);
+
+        $sql = "SELECT * FROM usuarios WHERE codigo = '$codigo'";
+        $sql = $pdo->query($sql);
+
+        if($sql->rowCount() == 0){
+
+          header("Location: codigo-invalido.php");
+          exit;
+        } 
+} else {
+      header("Location: codigo-invalido.php");
+}
+
 ?>
 
 
@@ -8,51 +25,40 @@ require 'config.php';
 <html>
 <head>
 	<title>Pagina de cadastro</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 
 	<div class="container">
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Sistema de convites</a>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-        </ul>
-        <span class="navbar-text">
-          Navbar text with an inline element
-        </span>
-
-      </div>
-    </nav>
+		
     <br/>
+
     <h2 style="text-align: center;">Cadastro de usuário convidado</h2>
+    <br/>
+        <div class="text-muted">
+      Você foi convidado para se cadastrar no nosso sistema de convites, <div class="font-weight-bold">por favor informe os dados abaixo.</div>
+    </div>
+    <br/>
     <form>
+
   <div class="form-group">
     <label for="exampleInputEmail1">Email</label>
-    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
     <small id="emailHelp" class="form-text text-muted">Informe seu E-mail</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Senha</label>
-    <input type="password" class="form-control" name="senha" id="exampleInputPassword1">
+    <input type="password" class="form-control" name="senha" id="exampleInputPassword1" required>
       <small id="emailHelp" class="form-text text-muted">Informe sua senha</small>
   </div>
   <button type="submit" class="btn btn-primary">Register</button>
+  <a type="submit" class="btn btn-danger" href="login.php" onclick="return confirm('Deseja cancelar o cadastro?')">Cancelar</a>
 </form>
   </div>
 </body>
