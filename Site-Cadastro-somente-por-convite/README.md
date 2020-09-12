@@ -1,11 +1,11 @@
-# Site - cadsatro somente por convite <br>
+# Site de cadsatro somente por convite <br>
 
 ## Objetivo
 * Projeto criado para criar um site de somente convidados<br>
 
 ## Funções
 
-* Login de acesso com sessão<br>
+* Login de acesso com sessão de usuários<br>
 * Cadastro de usuarios convidados<br>
 * Página de convite invalido<br>
 

@@ -116,6 +116,30 @@ require 'config.php';
     }
     ?>
   </form>
+   <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-6 col-md">
+                    <h5>Meu Github</h5>
+                    <a href="https://github.com/victorvaz001/ProjetosPHP" target="_blank"><img class="mb-2" src="GitHub-Mark.png" alt="" width="40" height="40"></a>
+                    
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Contato</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><p>Victor Gonçalves Vaz<br/>victorvaz001@gmail.com</p></li>
+
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Sobre o Sistema</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="https://www.php.net/" target="_blank">PHP</a></li>
+                        <li><a class="text-muted" href="https://www.mysql.com/" target="_blank">MySQL</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
 </div>
 </body>
 </html>
