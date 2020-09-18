@@ -80,11 +80,13 @@ require 'config.php';
 									$dado = $sql->fetch();
 
 									$_SESSION['userbanco'] = $dado['id'];
+									$_SESSION['titular'] = $dado['titular'];
+									
 									header("Location: index.php");
 
 								} else {
 									echo '<div class="alert alert-danger" role="alert" style="text-align: center;">
-											Usuário ou senha inválidos!
+											Dados incorretos!
 										</div>';
 								}
 							}

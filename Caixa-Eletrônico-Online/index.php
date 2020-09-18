@@ -102,6 +102,8 @@ if(isset($_SESSION['userbanco']) && !empty($_SESSION['userbanco'])){
 </div>
 <br/>
 <a href="add-transacao.php"class="btn btn-primary">Adicionar Transação</a><br/><br/>
+
+<h3>Histórico de Transações</h3>
 <table class="table table-sm" style="text-align: center;">
   <thead>
     <tr>
