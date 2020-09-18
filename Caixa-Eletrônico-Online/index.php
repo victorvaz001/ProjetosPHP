@@ -1,3 +1,24 @@
+<?php
+session_start();
+require 'config.php';
+
+if(isset($_SESSION['userbanco']) && !empty($_SESSION['userbanco'])){
+    $id = $_SESSION['userbanco'];
+
+    $sql = $pdo->prepare("SELECT * FROM contas WHERE id = :id");
+    $sql->bindValue(":id", $_SESSION['userbanco']);
+    $sql->execute();
+
+    if($sql->rowCount() > 0){
+      $info = $sql->fetch();
+    }
+
+} else {
+  header("Location:login.php");
+  exit;
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +35,7 @@
 
 	<!--icons -->
 	<script src="https://use.fontawesome.com/99dac69e8e.js"></script>
-	<title></title>
+	<title>Caixa Eltrônico onlinie</title>
 </head>
 <body>
 
@@ -36,7 +57,7 @@
     <ul class="list-inline">
          <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
+          <?php echo $info['titular']; ?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="logout.php" onclick="return confirm('Sair do sistema')">Sair</a>
@@ -51,21 +72,21 @@
 <div class="card-deck">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><i class="fa fa-user"></i> Titular</h5>
+      <h5 class="card-title"><i class="fa fa-user"></i> Titular: <?php echo $info['titular']; ?></h5>
       <p class="card-text"></p>
       <p class="card-text"></p>
     </div>
   </div>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><i class="fa fa-university"></i> Agência</h5>
+      <h5 class="card-title"><i class="fa fa-university"></i> Agência: <?php echo $info['agencia']; ?></h5>
       <p class="card-text"></p>
       <p class="card-text"></p>
     </div>
   </div>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Conta</h5>
+      <h5 class="card-title"> Conta: <?php echo $info['conta']; ?></h5>
 
       <p class="card-text"></p>
       <p class="card-text"></p>
@@ -73,14 +94,14 @@
   </div>
     <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Saldo</h5>
+      <h5 class="card-title"> Saldo: R$ <?php echo $info['saldo']; ?></h5>
       <p class="card-text"></p>
       <p class="card-text"></p>
     </div>
   </div>
 </div>
 <br/>
-<a href="add-transacao.php"class="btn btn-primary">Adicionar Tranção</a><br/><br/>
+<a href="add-transacao.php"class="btn btn-primary">Adicionar Transação</a><br/><br/>
 <table class="table table-sm">
   <thead>
     <tr>
@@ -102,7 +123,7 @@
 <div class="card text-center">
 <div card-footer text-muted>
   <p><img src="img/user.jpg" width="30" height="30"> Victor Gonçalves Vaz | <img src="img/email.png" width="30" height="30"> victorvaz001@gmail.com |
-   <a href="https://github.com/victorvaz001/ProjetosPHP"><img src="img/github.png" width="30" height="30"> Meu Git/Hub</a> </p>
+   <a href="https://github.com/victorvaz001/ProjetosPHP" target="_blank"><img src="img/github.png" width="30" height="30"> Meu Git/Hub</a> </p>
  
 </div>
 </div>

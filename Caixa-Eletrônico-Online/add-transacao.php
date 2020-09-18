@@ -13,7 +13,7 @@
 
 	<!--icons -->
 	<script src="https://use.fontawesome.com/99dac69e8e.js"></script>
-	<title></title>
+	 <title>Caixa Eltrônico onlinie</title>
 </head>
 <body>
 
@@ -59,14 +59,14 @@
     <label for="valor">Valor</label>
     <input type="number" class="form-control" id="valor" name="valor" placeholder="Informe um valor">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Enviar</button>
   <a href="index.php" type="submit" class="btn btn-danger" onclick="return confirm('Cancelar Transação?')">Cancelar</a><br/>
 </form>
 <br/>
 <div class="card text-center">
 <div card-footer text-muted>
   <p><img src="img/user.jpg" width="30" height="30"> Victor Gonçalves Vaz | <img src="img/email.png" width="30" height="30"> victorvaz001@gmail.com |
-   <a href="https://github.com/victorvaz001/ProjetosPHP"><img src="img/github.png" width="30" height="30"> Meu Git/Hub</a> </p>
+   <a href="https://github.com/victorvaz001/ProjetosPHP" target="_blank"><img src="img/github.png" width="30" height="30"> Meu Git/Hub</a> </p>
  
 </div>
 </div>
