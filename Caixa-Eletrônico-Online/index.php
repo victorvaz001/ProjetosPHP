@@ -102,20 +102,38 @@ if(isset($_SESSION['userbanco']) && !empty($_SESSION['userbanco'])){
 </div>
 <br/>
 <a href="add-transacao.php"class="btn btn-primary">Adicionar Transação</a><br/><br/>
-<table class="table table-sm">
+<table class="table table-sm" style="text-align: center;">
   <thead>
     <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Data</th>
-      <th scope="col">Valor</th>
+      <th scope="col">Id:</th>
+      <th scope="col">Data:</th>
+      <th scope="col">Valor:</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-    </tr>
+    <?php
+      $sql = $pdo->prepare("SELECT * FROM historico WHERE id_conta = :id_conta");
+      $sql->bindValue(":id_conta", $id);
+      $sql->execute();
+
+      if($sql->rowCount() > 0){
+        foreach($sql->fetchAll() as $dado){
+            ?>
+            <tr>
+              <th><?php echo $dado['id']; ?></th>
+              <td><?php echo date('d/m/Y H:i', strtotime($dado['data_operacao'])); ?></td>
+              <td>
+                <?php if($dado['tipo'] == '0'): ?>
+                  <font color="green">R$ <?php echo $dado['valor']; ?></font>
+                  <?php else: ?>
+                  <font color="red">-R$ <?php echo $dado['valor']; ?></font>
+                <?php endif;?>
+              </td>
+            </tr>
+            <?php
+        }
+      }
+    ?>
 
   </tbody>
 </table>
