@@ -39,5 +39,5 @@ INSERT INTO usuarios(nome, email, senha) VALUES
 );
 
 UPDATE noticias SET 
-titulo_materia  = 'Apoiadora de Bolsonaro ATUALIZADO', conteudo_materia  = 'Paula Marisa, será candidata a vereadora de canoas 2', nome_pessoa  = 'Marcianita Gonçalves de Souza 2' WHERE id = $id
+titulo_materia  = 'Apoiadora de Bolsonaro ATUALIZADO', conteudo_materia  = 'Paula Marisa, será candidata a vereadora de canoas 2', nome_pessoa  = 'Marcianita Gonçalves de Souza 2' WHERE id = 8;
 
