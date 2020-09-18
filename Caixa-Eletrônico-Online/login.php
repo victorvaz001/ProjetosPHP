@@ -80,7 +80,8 @@ require 'config.php';
 									$dado = $sql->fetch();
 
 									$_SESSION['userbanco'] = $dado['id'];
-									
+									$_SESSION['titular'] = $dado['titular'];
+							
 									header("Location: index.php");
 
 								} else {
