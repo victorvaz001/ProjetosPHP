@@ -89,7 +89,7 @@ if(isset($_SESSION['userbanco']) && !empty($_SESSION['userbanco'])){
     }
 
    ?>
-     Saldo atual: <b>R$ <?php echo $info['saldo']; ?></b><br/>
+     Saldo atualizado: <b>R$ <?php echo $info['saldo']; ?></b><br/><br/>
 <form method="POST" id="formulario">
   <div class="form-group">
     <label for="exampleFormControlSelect1">Escolha uma opção</label>
@@ -160,6 +160,8 @@ if(isset($_SESSION['userbanco']) && !empty($_SESSION['userbanco'])){
    $sql->bindValue(":tipo", $tipo);
    $sql->bindValue(":valor", $valor);
    $sql->execute();
+
+   header("Location: add-transacao.php");    
  
 }
  
@@ -173,6 +175,7 @@ if(isset($_SESSION['userbanco']) && !empty($_SESSION['userbanco'])){
       $sql->bindValue(":id", $_SESSION['userbanco']);
       $sql->execute();
      
+     header("Location: add-transacao.php");    
 
     }  else if($valor <= $dado['saldo']) {
       
@@ -182,7 +185,7 @@ if(isset($_SESSION['userbanco']) && !empty($_SESSION['userbanco'])){
      $sql->bindValue(":id", $_SESSION['userbanco']);
      $sql->execute();
 
-     
+     header("Location: add-transacao.php");    
    }
 
    
@@ -192,7 +195,7 @@ if(isset($_SESSION['userbanco']) && !empty($_SESSION['userbanco'])){
   echo '<div class="alert alert-danger" role="alert" style="text-align: left;">
   <font color="black">Por favor informe um valor válido para a transação!</font>
   </div>';
-
+  
 }
 }
   ?>
