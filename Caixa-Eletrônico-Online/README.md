@@ -1,7 +1,7 @@
 # Caixa Eletrônico Online <br>
 
 ## Objetivo
-* Projeto gerenciar transações bancarias<br>
+* Projeto para gerenciar transações bancarias<br>
 
 ## Funções
 
