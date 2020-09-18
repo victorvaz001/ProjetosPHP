@@ -52,6 +52,17 @@ require 'config.php';
 <br/>
 	<h2>Fazer uma transação</h2><br/>
 
+  <?php 
+    $sql = $pdo->prepare("SELECT * FROM contas WHERE id = :id");
+    $sql->bindValue(":id", $_SESSION['userbanco']);
+    $sql->execute();
+
+    if($sql->rowCount() > 0){
+       $info = $sql->fetch();
+    }
+
+   ?>
+     Saldo atual: <b>R$ <?php echo $info['saldo']; ?></b><br/>
 <form method="POST" id="formulario">
   <div class="form-group">
     <label for="exampleFormControlSelect1">Escolha uma opção</label>
@@ -65,7 +76,7 @@ require 'config.php';
     <input type="text" class="form-control" id="valor" name="valor" placeholder="Informe um valor"
     pattern="[0-9.,]{1,}">
   </div>
-  <button type="submit" class="btn btn-primary" onclick="return confirm('Confirma trasação?')">Enviar</button>
+  <button type="submit" class="btn btn-primary" onclick="return confirm('Confirmar transação?')">Enviar</button>
   <a href="index.php" type="submit" class="btn btn-danger" onclick="return confirm('Cancelar Transação?')">Cancelar</a><br/><br/>
   <?php
     if(isset($_POST['tipo'])){
@@ -77,35 +88,49 @@ require 'config.php';
 
   if($valor != '0' && !empty($valor)){
 
-    $sql = $pdo->prepare("INSERT INTO historico (id_conta, tipo, valor, data_operacao) VALUES
-      (:id_conta, :tipo, :valor, NOW())");
-    $sql->bindValue(":id_conta", $_SESSION['userbanco']);
-    $sql->bindValue(":tipo", $tipo);
-    $sql->bindValue(":valor", $valor);
-    $sql->execute();
+   $sql = $pdo->prepare("SELECT * FROM contas WHERE id = :id");
+   $sql->bindValue(":id", $_SESSION['userbanco']);
+   $sql->execute();
+
+   if($sql->rowCount() > 0){
+     $dado = $sql->fetch();
+   }
 
 
-    $sql = $pdo->prepare("SELECT * FROM contas WHERE id = :id");
-    $sql->bindValue(":id", $_SESSION['userbanco']);
-    $sql->execute();
+   if($tipo == '0' && $valor > 0){
+    $transacao = true;
+    echo '
+    <div class="alert alert-success" role="alert" style="text-align: left;">
+    <font color="black">Deposito no valor de <b>R$ '.$valor.' </b>foi feito na conta do titular <b>'.$dado['titular'].'</b> com sucesso, clique <a href="index.php">Aqui</a> para verificar seu historico</font>
+    </div>';
 
-    if($sql->rowCount() > 0){
-       $dado = $sql->fetch();
-      }
+  }  else if($tipo == '1' && $valor <= $dado['saldo']){
+    $transacao = true;
+    echo '
+    <div class="alert alert-primary" role="alert" style="text-align: left;">
+    <font color="black">Saque no valor de <b>R$ '.$valor.'</b> foi feito na conta do titular <b>'.$dado['titular'].'</b> com sucesso, clique <a href="index.php">Aqui</a> para verificar seu historico</font>
+    </div>';
+    
+  } else {
+    $transacao = false;
+   echo '
+   <div class="alert alert-warning" role="alert" style="text-align: left;">
+   <font color="black">Saldo insuficiente para o saque, clique <a href="index.php">Aqui</a> para verificar seu historico </font>
+   </div>';
 
-    if($tipo == '0'){
+ }
 
-      echo '
-      <div class="alert alert-success" role="alert" style="text-align: left;">
-      <font color="black">Deposito no valor de <b>R$ '.$valor.' </b>foi feito na conta do titular <b>'.$dado['titular'].'</b> com sucesso! clique <a href="index.php">Aqui</a> para verificar seu historico</font>
-      </div>';
+ if($transacao == true){
    
-    }  else {
-      echo '
-      <div class="alert alert-primary" role="alert" style="text-align: left;">
-      <font color="black">Saque no valor de <b>R$ '.$valor.'</b> foi feito na conta do titular <b>'.$dado['titular'].'</b> com sucesso! clique <a href="index.php">Aqui</a> para verificar seu historico</font>
-      </div>';
-    }
+   $sql = $pdo->prepare("INSERT INTO historico (id_conta, tipo, valor, data_operacao) VALUES
+    (:id_conta, :tipo, :valor, NOW())");
+   $sql->bindValue(":id_conta", $_SESSION['userbanco']);
+   $sql->bindValue(":tipo", $tipo);
+   $sql->bindValue(":valor", $valor);
+   $sql->execute();
+ 
+}
+ 
     
     //atualizar o saldo
     if($tipo == '0'){
@@ -115,8 +140,8 @@ require 'config.php';
       $sql->bindValue(":id", $_SESSION['userbanco']);
       $sql->execute();
 
-    }  else {
-            //Saque
+    }  else if($valor <= $dado['saldo']) {
+      //Saque
      $sql = $pdo->prepare("UPDATE contas SET saldo = saldo - :valor WHERE id = :id");
      $sql->bindValue(":valor", $valor);
      $sql->bindValue(":id", $_SESSION['userbanco']);
@@ -128,7 +153,7 @@ require 'config.php';
 
  } else {
   echo '<div class="alert alert-danger" role="alert" style="text-align: left;">
-  <font color="black">Por favor informe um valor para a sua transação!</font>
+  <font color="black">Por favor informe um valor válido para a transação!</font>
   </div>';
 }
 }
